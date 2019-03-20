@@ -39,5 +39,25 @@ def stock_picker(arr)
 end
 
 class Towers
+  attr_accessor :towers
+  def initialize
+    @towers = [ [5, 4, 3, 2, 1], [], []]
+  end
+
+  def move (pos1, pos2)
+    raise "empty tower" if towers[pos1].empty?
+
+    raise "bad move!" unless towers[pos2].empty? || towers[pos1].last < towers[pos2].last
+
+    towers[pos2] << towers[pos1].pop
+  end
+
+  def get_move 
+    puts "enter a move: (tower1 tower2)"
+    pos1, pos2 = gets.chomp.split(" ").map(&:to_i)
+  end
+
+
+
 
 end

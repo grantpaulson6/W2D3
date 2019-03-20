@@ -106,6 +106,7 @@ RSpec.describe Towers do
 
   describe '#move' do
     
+    
     it 'receives two arguments' do
       expect { game.move(0,1) }.to_not raise_error(ArgumentError)
     end
@@ -138,7 +139,7 @@ RSpec.describe Towers do
         expect(won.won?).to be false
       end
 
-      
+
   end
 
 end
