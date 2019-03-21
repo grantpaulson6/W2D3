@@ -4,14 +4,13 @@ require 'byebug'
 class Deck
   attr_accessor :cards
   def initialize
-    @cards = []
-    self.populate
+    @cards = Deck.populate
   end
 
-  def populate
-    self.cards = []
-    SUITS.each do |suit|
-      VALUES.each do |value|
+  def self.populate
+    cards = []
+    Card.all_suits.each do |suit|
+      Card.all_values.each do |value|
         cards << Card.new(value, suit)
       end
     end
@@ -24,9 +23,6 @@ class Deck
     dealt
   end
   
-
-  SUITS = [:hearts, :diamonds, :spades, :clubs].freeze
-  VALUES = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].freeze
 
 end
 

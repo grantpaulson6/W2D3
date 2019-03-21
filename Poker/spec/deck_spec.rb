@@ -42,7 +42,7 @@ RSpec.describe Deck do
 
     it "resets deck to 52 unique cards" do
       deck.deal(10)
-      deck.populate
+      deck.cards = Deck.populate
       expect(deck.cards.length).to eq(52)
     end
   end
